@@ -1,0 +1,92 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#left-menu-shop {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+#left-menu-shop.active {
+    margin-left: -250px;
+}
+#left-menu-shop {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+#left-menu-shop a[data-toggle="collapse"] {
+    position: relative;
+}
+
+#left-menu-shop .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+#left-menu-shop {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #2a3c52;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#left-menu-shop .sidebar-header {
+    padding: 20px;
+    background: #2a3c52;
+}
+
+#left-menu-shop ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+#left-menu-shop {
+    border-top: 1px solid #47748b;
+}
+#left-menu-shop ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#left-menu-shop ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#left-menu-shop ul li a:hover {
+    color: #1e788c;
+    background: #fff;
+}
+
+#left-menu-shop ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #2a3c52;
+}
+#left-menu-shop ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #2a3c52;
+}
+@media (max-width: 768px) {
+    #left-menu-shop {
+        margin-left: -250px;
+    }
+    #left-menu-shop.active {
+        margin-left: 0;
+    }
+}
+table button{
+    width: 30px;
+}
+table img{
+    width: 100px;
+    height: 100px;
+}

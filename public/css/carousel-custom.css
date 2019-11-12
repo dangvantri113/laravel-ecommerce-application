@@ -1,0 +1,22 @@
+.carousel-item{
+    background-color: currentColor;
+    text-align: center;
+}
+.carousel-item img{
+    display: inline-block;
+    max-width: 100%;
+}
+.carousel-caption{
+    width: 100%;
+    right: 0;
+    left: 0;
+    bottom:0;
+    padding-bottom: 0;
+}
+.carousel-caption div{
+    display: inline-block;
+    max-width: 800px;
+    width: 100%;
+    background: #000000ad;
+}
+

@@ -1,0 +1,7 @@
+@media only screen and (min-width: 600px) {
+.form-search{
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+}

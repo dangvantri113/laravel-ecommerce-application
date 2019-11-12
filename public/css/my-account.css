@@ -1,0 +1,65 @@
+#my-account-container .card img{
+    width: 100%;
+    max-width: 300px;
+}
+#my-account-container .card{
+    box-shadow: 2px 2px 11px 0 rgba(0,0,0,.1);
+}
+#my-account-container.row{
+    background: white !important;
+    margin: 0;
+    padding: 20px;
+}
+#my-account-container.row .card {
+    font-weight: 900;
+    padding: 10px 50px 10px 50px;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: large;
+}
+#my-account-container.row .card-body{
+    padding: 10px 0 0 0;
+    text-align: center;
+}
+#my-account-container.row .card:hover{
+    color: red !important;
+    box-shadow: 4px 4px 11px 0 rgba(0, 0, 0, 0.64);
+}
+
+#my-profile-container.card-block{
+    padding: 10px;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 30px auto;
+    box-shadow: 4px 4px 11px 0 rgba(0, 0, 0, 0.64);
+}
+#my-profile-container form{
+    display: inline-block;
+    margin: auto;
+}
+#my-profile-container form .form-title{
+    text-align: center;
+}
+#my-profile-container form label{
+    min-width: 120px;
+    display: inline-block;
+}
+#my-profile-container form input{
+    min-width: 200px;
+}
+#avatar-preview{
+    display: inline-block;
+    position: relative;
+}
+#avatar-preview input{
+    position: absolute;
+    top: 42%;
+    left: 0;
+}
+#avatar-preview img{
+    border-radius: 50%;
+    width: 200px;
+}
+#my-profile-container form .gender-radio{
+    min-width: 20px;
+}
