@@ -10,4 +10,7 @@ class Shop extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function groupProducts(){
+        $this->hasMany(GroupProduct::class);
+    }
 }

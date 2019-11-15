@@ -16,7 +16,7 @@
         <td> <img src="{{$product->image_1}}"></td>
         <td>{{$product->price}} đ</td>
         <td>
-            <button class="btn-success"><span class="fa fa-edit"></span></button>
+            <button class="btn-success" data-toggle="modal" data-target="#editProductModal"><span class="fa fa-edit"></span></button>
             <button class="btn-danger"><span class="fa fa-remove"></span></button>
 
         </td>

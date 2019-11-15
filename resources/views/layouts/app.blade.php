@@ -50,17 +50,18 @@
             <img src="http://ps.flytheme.net/themes/sp_shopee/img/sp-metro-logo-1542254642.jpg">
         </div>
         <div class="search-div flex-grow-1 align-self-center">
-            <form class="search-form form-inline d-flex">
-                <select class="search-item search-selector" name="_id">
+            <form id="homeSearchForm" method="get" class="search-form form-inline d-flex" action="{{route('search')}}">
+                @csrf
+                <select class="search-item search-selector" name="category_id">
                     <option value="0" selected> Tất cả</option>
                     @foreach($categoriesLv1 as $Lv1)
-                        <option value="lv1-{{$Lv1->id}}">-- {{$Lv1->name}}</option>
+                        <option value="{{$Lv1->id}}">-- {{$Lv1->name}}</option>
                         @foreach($Lv1->categoriesLv2 as $Lv2)
-                            <option value="lv2-{{$Lv2->id}}">---- {{$Lv2->name}}</option>
+                            <option value="{{$Lv1->id}}-{{$Lv2->id}}">---- {{$Lv2->name}}</option>
                         @endforeach
                     @endforeach
                 </select>
-                <input class="search-item search-field  flex-grow-1" type="text"
+                <input name="key_search" class="search-item search-field  flex-grow-1" type="text"
                        placeholder="tên sản phẩm, tên shop,...">
                 <button class="search-item search-button"><span class="fa fa-search"></span></button>
             </form>

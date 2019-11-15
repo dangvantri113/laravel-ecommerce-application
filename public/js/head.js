@@ -11,10 +11,5 @@ $(document).ready(function () {
         }
     });
 
-
-    // $('#list-category-menu').mouseenter(function () {
-    //     $('#list-category-menu').show();
-    // });
-
 })
 

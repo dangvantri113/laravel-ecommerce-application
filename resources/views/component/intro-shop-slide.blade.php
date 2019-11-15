@@ -17,7 +17,7 @@
 
                     <div class="carousel-caption">
                         <div>
-                            <h3>{{$shop->name}}</h3>
+                            <a href="http://localhost/shops/{{$shop->id}}"><h3>{{$shop->name}}</h3></a>
                             <p>{{$shop->description}}</p>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                     <img src="{{$shop->image}}" alt="{{$shop->name}}">
                     <div class="carousel-caption">
                         <div>
-                            <h3>{{$shop->name}}</h3>
+                            <a href="http://localhost/shops/{{$shop->id}}"><h3>{{$shop->name}}</h3></a>
                             <p>{{$shop->description}}</p>
                         </div>
                     </div>

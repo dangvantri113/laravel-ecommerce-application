@@ -177,3 +177,13 @@ div.comments_note div.star_content .fa {
     background: white;
     top: 10px;
 }
+.owl-carousel .owl-item img {
+    display: block;
+    width: 170px !important;
+}
+.fa-star-on{
+    color: yellow !important;
+}
+#resultSearchProducts img{
+    width: 170px;
+}

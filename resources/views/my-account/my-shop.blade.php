@@ -56,7 +56,7 @@
             <div id="product-container">
 
             </div>
-        </div>
+            @include('component.modal-edit-product')        </div>
     </section>
 @endsection
 @section('script')

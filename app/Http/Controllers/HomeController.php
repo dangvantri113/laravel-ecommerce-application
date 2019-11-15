@@ -29,7 +29,33 @@ class HomeController extends Controller
     {
         $catagoriesLv1 = CategoryLv1::all();
         $shopListIntro = Shop::all()->take(3);
-        return view('home',['categoriesLv1'=>$catagoriesLv1,'shopListIntro'=>$shopListIntro]);
+        $bestSellerProducts = GroupProduct::with('shop')->join('reviews', 'groups_product.id', '=', 'reviews.group_product_id')
+            ->selectRaw('AVG(reviews.number_star) avg_number_star,
+                         groups_product.id, 
+                         groups_product.shop_id, 
+                         groups_product.name,
+                         groups_product.price,
+                         groups_product.image_1')
+            ->groupBy(
+                'groups_product.id',
+                      'groups_product.shop_id',
+                      'groups_product.name',
+                      'groups_product.price',
+                      'groups_product.image_1')
+            ->get()
+            ->take(20);
+        $latestProducts = GroupProduct::all()->take(20);
+        $commendedProducts = GroupProduct::all()->take(20);
+        //dd($bestSellerProducts);
+        return view('home',
+            [
+                'categoriesLv1' => $catagoriesLv1,
+                'shopListIntro' => $shopListIntro,
+                'bestSellerProducts' => $bestSellerProducts,
+                'latestProducts'=> $latestProducts,
+                'commendedProducts'=>$commendedProducts
+            ]
+        );
     }
     public function listCate1($id){
         $catagoriesLv1 = CategoryLv1::all();

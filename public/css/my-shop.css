@@ -90,3 +90,18 @@ table img{
     width: 100px;
     height: 100px;
 }
+#edit-product-form label{
+    min-width: 120px;
+}
+#edit-product-form .upload-image{
+    display: none;
+}
+#edit-product-form .image-product-label {
+    width: 80px;
+    cursor: pointer;
+    /* Style as you please, it will become the visible UI component. */
+}
+#edit-product-form .preview-image{
+    width: 200px;
+    height: 200px;
+}

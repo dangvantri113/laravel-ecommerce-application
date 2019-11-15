@@ -17,5 +17,7 @@ class GroupProduct extends Model
     public function categoryLv2(){
         return $this->belongsTo(CategoryLv2::class);
     }
-
+    public function shop(){
+        return $this->belongsTo(Shop::class);
+    }
 }
