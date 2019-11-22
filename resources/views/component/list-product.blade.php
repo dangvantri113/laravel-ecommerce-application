@@ -13,7 +13,7 @@
     <tr>
         <th scope="row">{{$product->id}}</th>
         <td><a href="products/{{$product->id}}" target="_blank">{{$product->name}}</a></td>
-        <td> <img src="{{$product->image_1}}"></td>
+        <td> <img class="lazy" src="{{$product->image_1}}"></td>
         <td>{{$product->price}} đ</td>
         <td>
             <button class="btn-success" data-toggle="modal" data-target="#editProductModal"><span class="fa fa-edit"></span></button>

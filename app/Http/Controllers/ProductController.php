@@ -2,9 +2,13 @@
 namespace App\Http\Controllers;
 use App\Models\CategoryLv1;
 use App\Models\GroupProduct;
+use App\Models\Product;
 use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Cart;
+use Illuminate\Support\Facades\Auth;
+
 class ProductController extends Controller
 {
     public function index()
@@ -39,13 +43,27 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
+        if($request->ajax()){
+            $product = Product::where('group_product_id','=',$id);
+            if($request->color!=null){
+                $product = $product->where('color','=',$request->color);
+            }
+            if($request->size!=null){
+                $product = $product->where('size','=',$request->size);
+            }
+            return $product->first();
+        }
+
         $product = GroupProduct::find($id);
-        $catagoriesLv1 = CategoryLv1::all();
+        $categoriesLv1 = CategoryLv1::all();
         $shopListIntro = Shop::all()->take(3);
         return view('detail-product',
-            ['categoriesLv1'=>$catagoriesLv1,'shopListIntro'=>$shopListIntro,'product'=>$product]);
+            [
+                'categoriesLv1'=>$categoriesLv1,'shopListIntro'=>$shopListIntro,
+                'product'=>$product,'cartCount' =>Auth::check()?Cart::session(Auth::user()->id)->getContent()->count():null
+            ]);
     }
 
     /**
@@ -81,4 +99,20 @@ class ProductController extends Controller
     {
         //
     }
+    public function addToCart(Request $request)
+    {
+        $product = GroupProduct::find($request->input('group-product-id'));
+        $options = $request->except('_token', 'group-product-id', 'price');
+
+        Cart::session(Auth::user()->id)->add(array(
+            'id' => uniqid(),
+            'name' => 'Sample Item',
+            'price' => 67.99,
+            'quantity' => 4,
+            'attributes' => array()
+        ));
+
+        return redirect()->back()->with('message', 'Item added to cart successfully.');
+    }
+
 }

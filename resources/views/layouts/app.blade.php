@@ -12,14 +12,14 @@
 
     <!-- Scripts -->
     <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{asset('js/lib/popper.min.js')}}"></script>
+    <script src="{{asset('js/lib/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('css/lib/font-awesome/4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -47,7 +47,9 @@
 <header id="header" class="">
     <div class="header_top d-flex flex-row">
         <div class="logo align-self-center">
-            <img src="http://ps.flytheme.net/themes/sp_shopee/img/sp-metro-logo-1542254642.jpg">
+            <a class="d-inline-block" href="{{route('home')}}">
+                <img src="{{asset('images/logo.jpg')}}" style="width: 120px;">
+            </a>
         </div>
         <div class="search-div flex-grow-1 align-self-center">
             <form id="homeSearchForm" method="get" class="search-form form-inline d-flex" action="{{route('search')}}">
@@ -74,7 +76,16 @@
                          data-target="#modalLRForm">LOGIN/REGISTER</a></span>
             </div>
         @else
-            <div class="account-info-div align-self-center dropdown">
+            <div class="account-info-div align-self-center d-flex dropdown">
+                <div class="widget-header d-flex mr-2">
+                    <a  href="{{route('checkout.cart')}}" class="icontext d-flex">
+                        <div class="icon-wrap icon-xs bg2 round text-secondary"><i
+                                class="fa fa-shopping-cart ml-1 mr-2"></i></div>
+                        <div class="text-wrap">
+                            <small>{{ $cartCount }} items</small>
+                        </div>
+                    </a>
+                </div>
                 <span class="user-avatar dropdown-toggle" data-toggle="dropdown">
                     @if(isset(Auth::User()->profile->avatar))
                         <img style="width: 40px; border-radius: 50%" src="{{Auth::User()->profile->avatar}}">
@@ -110,14 +121,15 @@
                         @foreach($categoriesLv1 as $categoryLv1)
                             <div id="category-lv1-1" class="category-lv1 col-xl-2 col-lg-2 col-md-4 col-4 text-left">
 
-                                <a class="p-0" href="">
+                                <a class="p-0" href="http://localhost/shopping/{{$categoryLv1->slug}}">
                                     <img src="{{asset('images/category-lv1/'.$categoryLv1->image)}}">
                                     <b class="text-dark">{{$categoryLv1->name}}</b>
                                 </a>
                                 <ul class="pl-0">
                                     @foreach($categoryLv1->categoriesLv2 as $categoryLv2)
                                         <li class="category-lv2 d-block">
-                                            <a class="text-dark p-0">{{$categoryLv2->name}}</a>
+                                            <a href="http://localhost/shopping/{{$categoryLv1->slug}}/{{$categoryLv2->slug}}"
+                                               class="text-dark p-0">{{$categoryLv2->name}}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -189,17 +201,17 @@
 
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook" style="font: 14px/2.5 FontAwesome;"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter" style="font: 14px/2.5 FontAwesome;"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble" style="font: 14px/2.5 FontAwesome;"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin" style="font: 14px/2.5 FontAwesome;"></i></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 <div id="loading">
-    <img id="loading-image" src="{{asset('images/icon/loading.gif')}}" alt="Loading..." />
+    <img id="loading-image" src="{{asset('images/icon/pre-load-page.gif')}}" alt="Loading..." />
 </div>
 <script language="javascript" type="text/javascript">
     $(window).on('load',function() {

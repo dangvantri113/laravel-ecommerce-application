@@ -19,17 +19,17 @@ class MyShopController extends Controller
 {
     public function index()
     {
-        $catagoriesLv1 = CategoryLv1::all();
-        return view('my-account.my-shop', ['categoriesLv1' => $catagoriesLv1]);
+        $categoriesLv1 = CategoryLv1::all();
+        return view('my-account.my-shop', ['categoriesLv1' => $categoriesLv1]);
     }
 
     public function profile()
     {
         $user = Auth::user();
-        $catagoriesLv1 = CategoryLv1::all();
+        $categoriesLv1 = CategoryLv1::all();
         $provinces = Province::all();
         //dd(Auth::user()->profile);
-        return view('my-account.profile', ['categoriesLv1' => $catagoriesLv1,
+        return view('my-account.profile', ['categoriesLv1' => $categoriesLv1,
             'user' => $user,'provinces' => $provinces]);
     }
 
@@ -71,13 +71,9 @@ class MyShopController extends Controller
         $address->ward_id = $this->fomatWardId($request->ward_id);
 
         if (Hash::check($request->currentPass, $user->password)) {
-            //dd('0');
             $profile->save();
-            //dd('a');
             $user->save();
-            //dd('b');
             $address->save();
-            //dd('c');
             return response()->json(
                 [
                     'status' => 'success',
@@ -95,8 +91,8 @@ class MyShopController extends Controller
 
     public function myAccount()
     {
-        $catagoriesLv1 = CategoryLv1::all();
-        return view('my-account.my-account', ['categoriesLv1' => $catagoriesLv1]);
+        $categoriesLv1 = CategoryLv1::all();
+        return view('my-account.my-account', ['categoriesLv1' => $categoriesLv1]);
     }
 
     public function listDistrictsOfProvince(Request $request){

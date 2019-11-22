@@ -19,17 +19,17 @@ class MyAccountController extends Controller
 {
     public function index()
     {
-        $catagoriesLv1 = CategoryLv1::all();
-        return view('my-account.my-account', ['categoriesLv1' => $catagoriesLv1]);
+        $categoriesLv1 = CategoryLv1::all();
+        return view('my-account.my-account', ['categoriesLv1' => $categoriesLv1]);
     }
 
     public function profile()
     {
         $user = Auth::user();
-        $catagoriesLv1 = CategoryLv1::all();
+        $categoriesLv1 = CategoryLv1::all();
         $provinces = Province::all();
         //dd(Auth::user()->profile);
-        return view('my-account.profile', ['categoriesLv1' => $catagoriesLv1,
+        return view('my-account.profile', ['categoriesLv1' => $categoriesLv1,
             'user' => $user,'provinces' => $provinces]);
     }
     public function order()
@@ -100,8 +100,8 @@ class MyAccountController extends Controller
 
     public function myAccount()
     {
-        $catagoriesLv1 = CategoryLv1::all();
-        return view('my-account.my-account', ['categoriesLv1' => $catagoriesLv1]);
+        $categoriesLv1 = CategoryLv1::all();
+        return view('my-account.my-account', ['categoriesLv1' => $categoriesLv1]);
     }
 
     public function listDistrictsOfProvince(Request $request){

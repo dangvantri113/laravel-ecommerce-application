@@ -16,7 +16,7 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, ...$guards)
     {
         if ($this->authenticate($request, $guards) === 'authentication_error') {
-            return response()->json(['error'=>'Unauthorized']);
+            abort(500,'Bạn cần đăng nhập để thực hiện hành động này');
         }
         return $next($request);
     }

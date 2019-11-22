@@ -11,5 +11,8 @@ class Product extends Model
     {
         return $this->belongsTo(GroupProduct::class,'group_product_id');
     }
+    public function color(){
+        return $this->belongsTo(Color::class);
+    }
 
 }

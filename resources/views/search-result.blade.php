@@ -14,12 +14,6 @@
                                    class="thumbnail product-thumbnail">
                                     <img src="{{$product->image_1}}" alt="">
                                 </a>
-                                <div class="button-container">
-                                    <a href="#" class="quick-view" data-link-action="quickview" title="Quick View">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                        <span class="text">Quick View</span>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                         <div class="right-block">
@@ -45,9 +39,9 @@
                                     </div>
                                 </div>
                                 <div class="cart_content">
-                                    <a href="#" class="ajax-add-to-cart product-btn cart-button" data-id-product="20"
-                                       data-minimal-quantity="1" title="Add To Cart">
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <a href="#" class="ajax-add-to-cart product-btn cart-button" data-id-product="21" data-minimal-quantity="1" title="Add To Cart" data-toggle="modal" data-target="#addToCartModal">
+
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                         <span class="text">Add to Cart</span>
                                     </a>
                                 </div>
@@ -61,7 +55,30 @@
             <div class="d-inline">{{$products->links()}}</div>
         </div>
     </div>
+    @include('component.cart.modal-add-to-cart)
 @endsection
 @section('script')
 <script type="text/javascript" src="{{asset('js/search-page.js')}}"></script>
+<script type="text/javascript">
+    $('.ajax-add-to-cart.product-btn.cart-button').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url:$(this).attr('href'),
+            method:'get',
+            success: function (data) {
+                $('#addToCartModal .modal-body').html(data);
+                $('#addToCartModal').modal("show");
+            },
+            error: function (error) {
+                console.log(error.responseJSON.message)
+                Swal.fire(
+                    '',
+                    error.responseJSON.message,
+                    'warning'
+                )
+            }
+        })
+    })
+</script>
+
 @endsection

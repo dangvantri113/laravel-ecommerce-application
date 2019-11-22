@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
-class CatagoriesTableSeeder extends Seeder
+class CategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -85,15 +86,17 @@ class CatagoriesTableSeeder extends Seeder
 
         $lv1Index = 0;
         foreach ($data as $key1 => $dataLv1) {
-            DB::table('catagories_lv1')->insert([
+            DB::table('categories_lv1')->insert([
                 "name" => $dataLv1["name"],
+                "slug"=> Str::slug($dataLv1["name"],'-'),
                 "image" => $dataLv1["image"],
             ]);
             $lv1Index++;
             foreach ($dataLv1["list-lv2"] as $key2 => $dataLv2) {
-                DB::table('catagories_lv2')->insert([
-                    "catagories_lv1_id" => $lv1Index,
+                DB::table('categories_lv2')->insert([
+                    "categories_lv1_id" => $lv1Index,
                     "name" => $dataLv2["name"],
+                    "slug"=> Str::slug($dataLv2["name"],'-'),
                     "image" => $dataLv2["image"],
                 ]);
             }

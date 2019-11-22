@@ -15,7 +15,7 @@ class CreateCatagoriesLv1Table extends Migration
     {
         Schema::create('catagories_lv1', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('image')->nullable();
             $table->timestamps();
         });

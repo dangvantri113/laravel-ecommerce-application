@@ -16,12 +16,6 @@
                                             alt=""
                                             data-full-size-image-url="http://ps.flytheme.net/themes/sp_shopee/393-large_default/natus-therefore-always-bolac.jpg">
                                     </a>
-                                    <div class="button-container">
-                                        <a href="#" class="quick-view" data-link-action="quickview" title="Quick View">
-                                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                            <span class="text">Quick View</span>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="right-block">
@@ -47,9 +41,9 @@
                                         </div>
                                     </div>
                                     <div class="cart_content">
-                                        <a href="#" class="ajax-add-to-cart product-btn cart-button"
-                                           data-id-product="20" data-minimal-quantity="1" title="Add To Cart">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        <a href="#" class="ajax-add-to-cart product-btn cart-button" data-id-product="21" data-minimal-quantity="1" title="Add To Cart" data-toggle="modal" data-target="#addToCartModal">
+
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <span class="text">Add to Cart</span>
                                         </a>
                                     </div>

@@ -15,11 +15,13 @@ class AddressesTableSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        DB::unprepared(file_get_contents('app/sql/mysql.sql'));
-        $wardIds = DB::table('ward')->pluck('id');
-        for($i=0; $i<100;$i++){
+        //DB::unprepared(file_get_contents('app/sql/mysql.sql'));
+        $provinceIds = DB::table('provinces')->pluck('id');
+        for($i=0; $i<1205;$i++){
             DB::table('addresses')->insert([
-                'ward_id' => $faker->randomElement($wardIds),
+                'province_id'=>$provinceId = $faker->randomElement($provinceIds),
+                'district_id'=>$districtId= $faker->randomElement(DB::table('districts')->where('province_id',$provinceId)->pluck('id')),
+                'ward_id' => $faker->randomElement(DB::table('wards')->where('district_id',$districtId)->pluck('id')),
                 'detail' => $faker->address
             ]);
         }

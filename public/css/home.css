@@ -7,14 +7,15 @@
     margin-right: 50px;
     margin-left: 100px;
 }
-.product-container {
-    overflow: hidden;
-    border-bottom: 1px solid #eee;
-    border-right: 1px solid #eee;
-    margin-bottom: 0;
+.item-wrap.style1 {
     padding: 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 .product-container {
+    overflow: hidden;
+    margin-bottom: 0;
     cursor: pointer;
 }
 .product-container .left-block {
@@ -25,6 +26,10 @@
 .product-container .right-block {
     padding: 3px 0px 0px;
 }
+.product-container:hover{
+    transform: scale(1.1);
+}
+
 .product-container:hover .left-block .product-image img{
     background: white;
     opacity: 0.5;
@@ -40,9 +45,17 @@
 }
 .product-container .left-block .button-container a{
     display: inline-block;
+    position: relative;
     width: 42px;
     height: 42px;
 }
+.product-container .left-block .button-container a i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .product-container .left-block .button-container a:hover{
     background: #f5681e;
     color: white;
@@ -68,13 +81,6 @@
     font-size: 18px;
     font-weight: 400;
     text-transform: capitalize;
-}
-div.sp-extra-2 .extraslider-inner .product-miniature .product-container .cart_content a {
-    border: 1px solid #e5e5e5;
-    background: #fff;
-    color: #fe3c00;
-    font-size: 14px;
-    padding: 12px 18px;
 }
 .product-container .product-info {
     padding: 0;
@@ -112,17 +118,17 @@ div.comments_note div.star_content {
 div.comments_note div.star_content .fa {
     color: #ccc;
 }
-.product-container .cart_content a {
+.product-container .cart_content a, .info-product-container .cart_content a{
     border: 1px solid #e5e5e5;
     background: #fff;
     color: #fe3c00;
     font-size: 14px;
     padding: 12px 18px;
 }
-.product-container .cart_content a .fa {
+.product-container .cart_content a .fa, .info-product-container .cart_content a fa {
     font-size: 18px;
 }
-.product-container .cart_content a span {
+.product-container .cart_content a span, .info-product-container .cart_content a span {
     margin: 0 0 0 5px;
 }
 .owl-next:hover, .owl-prev:hover {
@@ -183,7 +189,4 @@ div.comments_note div.star_content .fa {
 }
 .fa-star-on{
     color: yellow !important;
-}
-#resultSearchProducts img{
-    width: 170px;
 }

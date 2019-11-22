@@ -63,13 +63,6 @@ a:hover{
     border: none;
     background:#2a3c52 !important;
 }
-#list-category-menu{
-   display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    background-color: rebeccapurple;
-}
 div.category-lv1{
     margin-bottom: 20px;
 }
@@ -93,7 +86,9 @@ div.category-lv1{
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
     position: absolute;
     left: 0;
     top:28px;
@@ -119,7 +114,9 @@ li.category-lv2{
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
-.dropdown-category:hover .dropdown-content {display: block;}
+.dropdown-category:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown-category:hover .dropbtn {
@@ -139,7 +136,7 @@ li.category-lv2{
         margin-bottom: 3px;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1020px) {
     .header_top, .logo, .search-div, .account-info-div, .login-register-div{
         display: block !important;
         padding-left: 10px;
@@ -150,6 +147,9 @@ li.category-lv2{
     }
     .logo ,.search-div{
         margin-bottom: 5px;
+    }
+    .widget-header{
+        display: inline-block !important;
     }
     #btn-menu-collapse{
         display: block;
@@ -184,5 +184,8 @@ li.category-lv2{
 
 #loading-image {
     z-index: 100;
+}
+.fa-shopping-cart{
+    font-size: x-large;
 }
 
